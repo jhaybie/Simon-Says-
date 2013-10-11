@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E4ABD1811808179200400B47 /* HighScorePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E4ABD1801808179200400B47 /* HighScorePlayer.m */; };
 		E4AC7B8C18072580006B14B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4AC7B8B18072580006B14B3 /* Foundation.framework */; };
 		E4AC7B8E18072580006B14B3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4AC7B8D18072580006B14B3 /* CoreGraphics.framework */; };
 		E4AC7B9018072580006B14B3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4AC7B8F18072580006B14B3 /* UIKit.framework */; };
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E4ABD17F1808179200400B47 /* HighScorePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScorePlayer.h; sourceTree = "<group>"; };
+		E4ABD1801808179200400B47 /* HighScorePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScorePlayer.m; sourceTree = "<group>"; };
 		E4AC7B8818072580006B14B3 /* Simon Says!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Simon Says!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4AC7B8B18072580006B14B3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E4AC7B8D18072580006B14B3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -122,6 +125,8 @@
 				E4AC7B9B18072580006B14B3 /* AppDelegate.m */,
 				E4AC7BC0180727A6006B14B3 /* ColorPanelView.h */,
 				E4AC7BC1180727A6006B14B3 /* ColorPanelView.m */,
+				E4ABD17F1808179200400B47 /* HighScorePlayer.h */,
+				E4ABD1801808179200400B47 /* HighScorePlayer.m */,
 				E4AC7B9D18072580006B14B3 /* Main.storyboard */,
 				E4AC7BC318077FB3006B14B3 /* HighScoreViewController.h */,
 				E4AC7BC418077FB3006B14B3 /* HighScoreViewController.m */,
@@ -260,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4AC7BA218072580006B14B3 /* RootViewController.m in Sources */,
+				E4ABD1811808179200400B47 /* HighScorePlayer.m in Sources */,
 				E4AC7BC518077FB3006B14B3 /* HighScoreViewController.m in Sources */,
 				E4AC7BC2180727A6006B14B3 /* ColorPanelView.m in Sources */,
 				E4AC7B9C18072580006B14B3 /* AppDelegate.m in Sources */,
@@ -472,6 +478,7 @@
 				E4AC7BBC18072580006B14B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E4AC7BBD18072580006B14B3 /* Build configuration list for PBXNativeTarget "Simon Says!Tests" */ = {
 			isa = XCConfigurationList;
@@ -480,6 +487,7 @@
 				E4AC7BBF18072580006B14B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

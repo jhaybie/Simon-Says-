@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ColorPanelView.h"
+#import "HighScorePlayer.h"
 #import "HighScoreViewController.h"
 
 

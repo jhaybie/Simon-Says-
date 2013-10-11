@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HighScorePlayer.h"
+
 
 @interface HighScoreViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
-@property (weak, nonatomic) NSMutableArray *highScoreList;
-@property (weak, nonatomic) NSString *playerName;
-@property (nonatomic) int highScore;
+
+@property (strong, nonatomic) NSArray *highScoreList;
+
 @end

@@ -12,11 +12,13 @@
 @interface HighScoreViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *highScoreTableView;
+
 @end
 
 
 @implementation HighScoreViewController
-@synthesize highScore, highScoreList, highScoreTableView, playerName;
+@synthesize     highScoreList,
+                highScoreTableView;
 
 
 #pragma mark UITableViewDelegate
@@ -24,8 +26,7 @@
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
-    //return [highScoreList count];
+    return [highScoreList count];
 }
 
 
@@ -39,35 +40,24 @@
                                       reuseIdentifier:@"xxx"];
     }
     
-    
-    cell.textLabel.text = playerName;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%i", highScore];
-    //cell.textLabel.text = highScoreList[indexPath.row];
+    cell.textLabel.text = [highScoreList[indexPath.row] playerName];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%i", [highScoreList[indexPath.row] playerScore]];
+
     [highScoreTableView reloadData];
     return cell;
-}
-
-
-- (IBAction)onDoneButtonTap:(id)sender
-{
-    [self dismissViewControllerAnimated:YES
-                             completion:nil];
-//    if (highScore > 0)
-//    {
-//        NSMutableDictionary *temp = [[NSMutableDictionary alloc] init];
-//        [temp setObject:playerNameTextField.text
-//                 forKey:[NSString stringWithFormat:@"%i", highScore]];
-//        [highScoreList addObject:temp];
-//    }
-//    [highScoreTableView reloadData];
-//     Go back to RootViewController
 }
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"Player: %@, High Score: %i", playerName, highScore);
+    self.navigationController.navigationBarHidden = NO;
+    for (int i = 0; i < [highScoreList count]; i++)
+    {
+        HighScorePlayer *tempPerson = highScoreList[i];
+        NSLog(@"Name: %@,  Score: %i", tempPerson.playerName, tempPerson.playerScore);
+    }
+    [highScoreTableView reloadData];
 }
 
 

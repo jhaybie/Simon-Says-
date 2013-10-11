@@ -14,9 +14,10 @@
 -(void) animateColorPanelView:(ColorPanelView *)view
 {
     UIColor *originalColor = self.backgroundColor;
-    view.backgroundColor = [UIColor whiteColor];
-    [UIView animateWithDuration:0.5f animations:
-     ^{
+    view.backgroundColor   = [UIColor whiteColor];
+    [UIView animateWithDuration:0.5f
+                     animations:
+    ^{
         view.backgroundColor = originalColor;
     }];
 }

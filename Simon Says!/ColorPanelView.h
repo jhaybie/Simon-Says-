@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface ColorPanelView : UIView
 
 -(void) animateColorPanelView:(ColorPanelView *)view;
