@@ -46,11 +46,10 @@ NSMutableArray  *highScoreList,
     int x = arc4random()%6;
     moves[numberOfMoves-1] = [NSString stringWithFormat:@"%i", x];
     
-    // *** This loop slowly shortens the delay between each panel animation as the game progresses ***
-    
+    // *** This loop slowly shortens the delay between panel animations as the game progresses ***
     for (int index = 0; index < moves.count % 3; index ++)
     {
-        difficultyCounter = difficultyCounter - 0.025;
+            difficultyCounter -= 0.05;
     }
     
     for (int i = 0; i < numberOfMoves; i++)
@@ -79,7 +78,7 @@ NSMutableArray  *highScoreList,
 {
     if (playerMoveCounter < numberOfMoves)
     {
-        NSString *tempTag = moves[playerMoveCounter];
+        NSString *tempTag = [moves objectAtIndex:playerMoveCounter];
         if (tag.intValue != tempTag.intValue)
         {
             if (playerScore > lowestHighScore)
@@ -87,6 +86,7 @@ NSMutableArray  *highScoreList,
                 lowestHighScore = playerScore;
                 if (playerScore > highScore)
                     highScore = playerScore;
+                // Can be replaced by calling a method to handle new high score
                 UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"New High Score!"
                                                                   message:@"Type in your name:"
                                                                  delegate:self
@@ -97,6 +97,7 @@ NSMutableArray  *highScoreList,
             }
             else
             {
+                // Can be replaced by calling a method to handle game over
                 UIAlertView *message = [[UIAlertView alloc] initWithTitle: @"Game Over"
                                                                   message: @"Wrong button!"
                                                                  delegate: self
@@ -107,6 +108,7 @@ NSMutableArray  *highScoreList,
         }
         else
         {
+                // Can be replaced by calling a method to continue the game without bringing up an alert view
             playerMoveCounter++;
             [self updateScore];
             if (playerMoveCounter == numberOfMoves)
@@ -138,14 +140,13 @@ NSMutableArray  *highScoreList,
 
 
 #pragma mark UIAlertViewDelegate
-
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if ([alertView.title isEqual:@"Correct!"])
         [self performSelector:@selector(generateMoves)
                    withObject:nil
                    afterDelay:1.0f];
-    else
+    else // game over and high score
     {
         HighScoreViewController *hsvc = [self.storyboard instantiateViewControllerWithIdentifier:@"HighScoreViewController"];
         hsvc.highScoreList            = highScoreList;
@@ -163,7 +164,7 @@ NSMutableArray  *highScoreList,
                                                      animated:YES];
             }
         }
-        else
+        else // Game is over and not high score
         {
             if (buttonIndex != 0)
             {
@@ -180,8 +181,7 @@ NSMutableArray  *highScoreList,
     [super viewDidLoad];
     highScoreList = [[NSMutableArray alloc] init];
     
-    // Loading dummy high scores into HighScoreList
-    
+    // Load dummy high scores into HighScoreList; replace with code that loads from a high score file
     HighScorePlayer *tempPerson0 = [[HighScorePlayer alloc] init];
     tempPerson0.playerName = @"KickAss";
     tempPerson0.playerScore = 2468;
@@ -210,8 +210,8 @@ NSMutableArray  *highScoreList,
     tempPerson8.playerName = @"Gettin btr";
     tempPerson8.playerScore = 128;
     HighScorePlayer *tempPerson9 = [[HighScorePlayer alloc] init];
-    tempPerson4.playerName = @"I suck";
-    tempPerson4.playerScore = 32;
+    tempPerson9.playerName = @"I suck";
+    tempPerson9.playerScore = 32;
     
     highScoreList[0] = tempPerson0;
     highScoreList[1] = tempPerson1;
@@ -242,7 +242,7 @@ NSMutableArray  *highScoreList,
 
 - (void)resetGame
 {
-    moves = [[NSMutableArray alloc] init];
+    [moves removeAllObjects];
     difficultyCounter  = 1.0;
     highScore          = 0;
     numberOfMoves      = 1;
@@ -287,6 +287,7 @@ NSMutableArray  *highScoreList,
 {
     [self resetGame];
     playerScoreLabel.text = @"0";
+    //[self generateMoves];
     [self performSelector:@selector(generateMoves)
                withObject:nil
                afterDelay:1.0f];

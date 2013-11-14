@@ -43,8 +43,9 @@
     cell.textLabel.text = [highScoreList[indexPath.row] playerName];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%i", [highScoreList[indexPath.row] playerScore]];
 
-    [highScoreTableView reloadData];
+    //[highScoreTableView reloadData];
     return cell;
+    [highScoreTableView reloadData];
 }
 
 
@@ -52,11 +53,11 @@
 {
     [super viewDidLoad];
     self.navigationController.navigationBarHidden = NO;
-    for (int i = 0; i < [highScoreList count]; i++)
-    {
-        HighScorePlayer *tempPerson = highScoreList[i];
-        NSLog(@"Name: %@,  Score: %i", tempPerson.playerName, tempPerson.playerScore);
-    }
+//    for (int i = 0; i < [highScoreList count]; i++)
+//    {
+//        HighScorePlayer *tempPerson = highScoreList[i];
+//        NSLog(@"Name: %@,  Score: %i", tempPerson.playerName, tempPerson.playerScore);
+//    }
     [highScoreTableView reloadData];
 }
 
